@@ -2,7 +2,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import express from 'express';
 
-import { connectDatabase } from './database';
+import { connectDatabase } from './config/database';
 import octofitRoutes from './routes/octofitRoutes';
 
 dotenv.config();

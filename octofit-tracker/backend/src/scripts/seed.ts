@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 
-import { connectDatabase, disconnectDatabase } from '../database';
+import { connectDatabase, disconnectDatabase } from '../config/database';
 import { ActivityModel } from '../models/Activity';
 import { LeaderboardEntryModel } from '../models/LeaderboardEntry';
 import { TeamModel } from '../models/Team';

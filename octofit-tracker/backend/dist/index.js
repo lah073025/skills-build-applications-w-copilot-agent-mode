@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const cors_1 = __importDefault(require("cors"));
 const dotenv_1 = __importDefault(require("dotenv"));
 const express_1 = __importDefault(require("express"));
-const database_1 = require("./database");
+const database_1 = require("./config/database");
 const octofitRoutes_1 = __importDefault(require("./routes/octofitRoutes"));
 dotenv_1.default.config();
 const app = (0, express_1.default)();
