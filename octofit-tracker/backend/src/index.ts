@@ -1,8 +1,8 @@
 import cors from 'cors';
 import dotenv from 'dotenv';
 import express from 'express';
-import mongoose from 'mongoose';
 
+import { connectDatabase } from './database';
 import octofitRoutes from './routes/octofitRoutes';
 
 dotenv.config();
@@ -18,8 +18,6 @@ const apiBaseUrl = codespaceName
   ? `https://${codespaceName}-${port}.app.github.dev`
   : `http://localhost:${port}`;
 
-const mongoUri = process.env.MONGODB_URI ?? 'mongodb://127.0.0.1:27017/octofit_db';
-
 app.use(cors({ origin: frontendOrigin }));
 app.use(express.json());
 
@@ -31,7 +29,7 @@ app.use('/api', octofitRoutes);
 
 const startServer = async (): Promise<void> => {
   try {
-    await mongoose.connect(mongoUri);
+    await connectDatabase();
     app.listen(port, () => {
       console.log(`OctoFit backend listening on port ${port}`);
     });
